@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f7f3ea;
+  --color-paper-deep: #efe9db;
+  --color-ink: #2b2620;
+  --color-ink-soft: #5c554a;
+  --color-ink-faint: #8a8172;
+  --color-oxblood: #7c2d2d;
+  --color-oxblood-deep: #5f1f1f;
+  --color-navy: #2c3e5d;
+  --color-gilt: #a97e2f;
+  --color-tip: #262b36;
+  --color-tip-edge: #3d4557;
+  --color-tip-text: #e8e4da;
+  --color-card: rgba(255, 255, 255, 0.5);
+  --color-card-strong: rgba(255, 255, 255, 0.75);
+  --color-sea: #dce6e8;
+  --color-land: #cfc9ba;
+  --font-serif: "Charter", "Iowan Old Style", "Georgia", "Times New Roman", serif;
+  --font-sans: "Avenir Next", "Seravek", "Segoe UI", system-ui, sans-serif;
+}
+
+/* ---- Candlelight dark theme ----
+   Token-level overrides; the viewer's toggle (data-theme) beats the OS. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --color-paper: #211c16;
+    --color-paper-deep: #1a1611;
+    --color-ink: #e6ddcc;
+    --color-ink-soft: #b2a68e;
+    --color-ink-faint: #7f7460;
+    --color-oxblood: #d08a76;
+    --color-oxblood-deep: #e0a48e;
+    --color-navy: #93a9cc;
+    --color-gilt: #c9a25f;
+    --color-tip: #14110d;
+    --color-tip-edge: #4a4030;
+    --color-card: rgba(255, 244, 224, 0.045);
+    --color-card-strong: rgba(255, 244, 224, 0.08);
+    --color-sea: #1b232b;
+    --color-land: #353026;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-paper: #211c16;
+  --color-paper-deep: #1a1611;
+  --color-ink: #e6ddcc;
+  --color-ink-soft: #b2a68e;
+  --color-ink-faint: #7f7460;
+  --color-oxblood: #d08a76;
+  --color-oxblood-deep: #e0a48e;
+  --color-navy: #93a9cc;
+  --color-gilt: #c9a25f;
+  --color-tip: #14110d;
+  --color-tip-edge: #4a4030;
+  --color-card: rgba(255, 244, 224, 0.045);
+  --color-card-strong: rgba(255, 244, 224, 0.08);
+  --color-sea: #1b232b;
+  --color-land: #353026;
+}
+
+html {
+  background: var(--color-paper);
+}
+
+body {
+  /* Set on body as well as html: host pages (e.g. the artifact frame)
+     inject their own light body background, which must not win. */
+  background: var(--color-paper);
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.prose-body {
+  font-family: var(--font-serif);
+  font-size: 1.075rem;
+  line-height: 1.75;
+  color: var(--color-ink);
+}
+
+/* Concept link — the hoverable term */
+.concept-link {
+  color: var(--color-oxblood);
+  border-bottom: 1px dotted color-mix(in srgb, var(--color-oxblood) 55%, transparent);
+  cursor: help;
+  border-radius: 1px;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+.concept-link:hover,
+.concept-link.is-open {
+  background: color-mix(in srgb, var(--color-oxblood) 12%, transparent);
+  border-bottom-style: solid;
+  border-bottom-color: var(--color-oxblood);
+}
+.concept-link.is-inert {
+  color: var(--color-ink);
+  border-bottom: none;
+  cursor: inherit;
+  background: none;
+  font-style: italic;
+}
+
+/* Tooltip card */
+.tooltip-card {
+  background: var(--color-tip);
+  color: var(--color-tip-text);
+  border: 1px solid var(--color-tip-edge);
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(20, 18, 12, 0.38), 0 2px 8px rgba(20, 18, 12, 0.25);
+  animation: tooltip-in 140ms ease-out;
+}
+.tooltip-card.is-locked {
+  border-color: var(--color-gilt);
+}
+.tooltip-card .concept-link {
+  color: #e8b364;
+  border-bottom-color: color-mix(in srgb, #e8b364 55%, transparent);
+}
+.tooltip-card .concept-link:hover,
+.tooltip-card .concept-link.is-open {
+  background: color-mix(in srgb, #e8b364 16%, transparent);
+  border-bottom-color: #e8b364;
+}
+.tooltip-card .concept-link.is-inert {
+  color: var(--color-tip-text);
+  border-bottom: none;
+  background: none;
+}
+
+@keyframes tooltip-in {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tooltip-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-tip-edge) transparent;
+}
+
+/* Reading accordion */
+details.reading > summary { list-style: none; }
+details.reading > summary::-webkit-details-marker { display: none; }
+
+.sidebar-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #d8d0bf transparent;
+}
+
+/* Illuminated drop cap on each chapter's opening paragraph */
+article > p.prose-body:first-of-type::first-letter {
+  float: left;
+  font-size: 3.3em;
+  line-height: 0.85;
+  padding: 0.04em 0.08em 0 0;
+  font-weight: 700;
+  color: var(--color-oxblood);
+}
+
+/* Page transition */
+.page-in {
+  animation: page-in 260ms ease-out;
+}
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-in, .tooltip-card { animation: none; }
+}
+
+/* Search jump highlight */
+mark.search-flash {
+  background: color-mix(in srgb, var(--color-gilt) 45%, transparent);
+  color: inherit;
+  border-radius: 2px;
+  animation: search-flash-fade 2.6s ease forwards;
+}
+@keyframes search-flash-fade {
+  0%, 55% { background: color-mix(in srgb, var(--color-gilt) 45%, transparent); }
+  100% { background: transparent; }
+}
