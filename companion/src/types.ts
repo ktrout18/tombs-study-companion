@@ -70,6 +70,30 @@ export interface PartInfo {
   era?: string
 }
 
+/** One cell of a chapter mind map. */
+export interface MindMapCell {
+  h: string
+  x: Rich
+  /** Optional memory cue — a short, vivid retrieval hook */
+  cue?: Rich
+}
+
+export interface MindMapSection {
+  title: string
+  cells: MindMapCell[]
+}
+
+/** A one-board visual synthesis of a chapter. */
+export interface MindMap {
+  /** One-line framing banner shown under the board title */
+  intro: Rich
+  sections: MindMapSection[]
+  /** "Links to remember" — the chapter's essential takeaways, in order */
+  keys: { h: string; x: Rich }[]
+  /** Optional closing memory chain, e.g. cause → effect → consequence */
+  chain?: Rich
+}
+
 /** A multiple-choice quiz question, answerable from its chapter's text. */
 export interface QuizQ {
   q: string

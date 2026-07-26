@@ -1,4 +1,16 @@
-# Interactive study companion — COMPLETE (v2: learning features)
+# Interactive study companion — COMPLETE (v3: chapter mind maps)
+
+## v3 additions (all shipped to artifact v5 + GitHub Pages)
+- "The chapter at a glance" mind-map boards on all 29 chapters: numbered
+  section bands of tooltip-linked cells, memory cues, a "links to remember"
+  rail, and a closing cause-and-effect chain — native HTML (crisp, searchable,
+  dark-mode aware), inspired by the user's poster for ch3 but fact-checked
+  and rendered from the companion's own verified text
+- Hostile review: all 29 boards verified rendering with live tooltips and no
+  console errors; its major finding (boards repeating chapter sentences
+  verbatim) fixed by a rewording pass across 12 files; contrast and small
+  factual nits fixed
+- The user's original PNG poster stays local only (not committed)
 
 ## v2 additions (all shipped, reviewed, republished)
 - Progress & collection: chapters auto-marked read, per-part progress bars,

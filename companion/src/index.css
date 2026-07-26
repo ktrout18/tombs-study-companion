@@ -13,6 +13,8 @@
   --color-tip: #262b36;
   --color-tip-edge: #3d4557;
   --color-tip-text: #e8e4da;
+  /* Gilt readable as small text on light ground (the decorative gilt fails contrast) */
+  --color-gilt-ink: #7d5a1d;
   --color-card: rgba(255, 255, 255, 0.5);
   --color-card-strong: rgba(255, 255, 255, 0.75);
   --color-sea: #dce6e8;
@@ -35,6 +37,7 @@
     --color-oxblood-deep: #e0a48e;
     --color-navy: #93a9cc;
     --color-gilt: #c9a25f;
+    --color-gilt-ink: #c9a25f;
     --color-tip: #14110d;
     --color-tip-edge: #4a4030;
     --color-card: rgba(255, 244, 224, 0.045);
@@ -54,6 +57,7 @@
   --color-oxblood-deep: #e0a48e;
   --color-navy: #93a9cc;
   --color-gilt: #c9a25f;
+  --color-gilt-ink: #c9a25f;
   --color-tip: #14110d;
   --color-tip-edge: #4a4030;
   --color-card: rgba(255, 244, 224, 0.045);

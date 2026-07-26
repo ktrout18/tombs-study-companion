@@ -7,6 +7,7 @@ import { renderRich } from '../engine/rich'
 import { markRead, setLastChapter } from '../engine/store'
 import { EraScrubber } from '../components/EraScrubber'
 import { ChapterQuiz } from '../components/ChapterQuiz'
+import { MindMapBoard } from '../components/MindMapBoard'
 import { clearPendingHighlight, getPendingHighlight } from '../components/SearchPalette'
 
 export function ChapterPage() {
@@ -119,6 +120,8 @@ export function ChapterPage() {
       </header>
 
       <Blocks blocks={chapter.blocks} />
+
+      <MindMapBoard chapterId={chapter.id} />
 
       <ChapterQuiz chapterId={chapter.id} />
 
