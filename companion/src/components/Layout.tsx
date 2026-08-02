@@ -7,6 +7,7 @@ import { QUIZZES } from '../content/quiz'
 import { PARTS } from '../content/structure'
 import { dueReviewKeys, setTheme, useAppState } from '../engine/store'
 import { SearchPalette } from './SearchPalette'
+import { AskPanel } from './AskPanel'
 
 const THEME_LABEL = { auto: 'Auto', light: 'Light', dark: 'Dark' } as const
 
@@ -219,6 +220,7 @@ export function Layout({ children }: { children: ReactNode }) {
       </div>
 
       <SearchPalette open={searchOpen} onClose={() => setSearchOpen(false)} />
+      <AskPanel />
     </div>
   )
 }

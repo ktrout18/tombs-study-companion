@@ -19,6 +19,11 @@ project. It is meant to be read alongside your own copy.
   Wars of the Roses dynastic tree, Reformation pendulum, franchise expansion,
   Corn Law bread prices, declinism data explorer, and more
 - Light "manuscript" and dark "candlelight" themes
+- "Chapter at a glance" mind-map boards on every chapter
+- "Ask the Companion" tutor: finds relevant passages anywhere; on this
+  public site, readers can add their own Anthropic API key (stored only in
+  their browser, sent only to Anthropic) for a live AI tutor grounded in the
+  companion's own content — never the book's text
 
 The handful of quoted primary sources (Bede, the Anglo-Saxon Chronicle,
 Magna Carta, Charles I, Nelson, Wilfred Owen) are public-domain, brief,
